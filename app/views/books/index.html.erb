@@ -6,9 +6,17 @@
   <table>
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th colspan="3"></th>
+        <p>Title</p>
+        <span><%= @book.本のタイトル %></span>
+        <p>Body</p>
+        <span><%= @book.感想 %></span>
+        <% @books.each do |list| %>
+        <th >
+          <a href='books/show'>show</a>
+          <a href='books/edit'>edit</a>
+          <a href='lists/destroy'>destroy</a>
+        </th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
