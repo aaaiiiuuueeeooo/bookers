@@ -6,31 +6,39 @@
   <table>
     <thead>
       <tr>
-        <p>Title</p>
-        <span><%= @book.本のタイトル %></span>
-        <p>Body</p>
-        <span><%= @book.感想 %></span>
-        <% @books.each do |list| %>
-        <th >
-          <a href='books/show'>show</a>
-          <a href='books/edit'>edit</a>
-          <a href='lists/destroy'>destroy</a>
+        <th>
+          <p>Title</p>
+          <span><%= @book.本のタイトル %></span>
+          <p>Body</p>
+          <span><%= @book.感想 %></span>
+          <% @books.each do |list| %>
+        </th>
+        <th>
+         <span>
+           <%= link_to 'show',"books/:id" %>
+         </span>
+         <span>
+           <%= link_to 'Edit',"books/:id/edit" %>
+         </span>
+         <span>
+           <%= link_to 'Destroy',"lists/destroy" %>
+         </span>
         </th>
         <% end %>
       </tr>
     </thead>
     <tbody>
-      
+
     </tbody>
   </table>
   <h2>New book</h2>
   <%= form_with model: @book do |f| %>
   <h4>Title</h4>
-  <%= f.text_field :title %>
-  
+  <%= f.text_field :本のタイトル %>
+
   <h4>Body</h4>
-  <%= f.text_area :body %>
-  
+  <%= f.text_area :感想 %>
+
   <%= f.submit 'Create Book' %>
 <% end %>
 

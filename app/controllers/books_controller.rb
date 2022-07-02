@@ -11,18 +11,24 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     book.save
-    redirect_to '/lists/create'
+    redirect_to list_path(book.id)
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
-
+  
+  def update
+    @book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to "books/:id"
+  end
   private
   def book_params
     params.require(:book).permit(:本のタイトル, :感想)
   end
 end
-
